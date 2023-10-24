@@ -1,41 +1,57 @@
-import Link from "next/link";
 import Map from "./component/Map";
+import React, {useState} from "react";
+import Header from "./component/header";
+import { ArrowRightCircleIcon, ArrowLeftCircleIcon } from "@heroicons/react/24/solid"
 
 export default function Home() {
+
+  const imageSlides = [
+    {
+      url: "/images/uin.svg"
+    },
+    {
+      url: "/images/1.png"
+    },
+    {
+      url: "/images/2.png"
+    },
+  ];
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const prevSlide = ()=> {
+    const isFirstSlide = currentIndex === 0;
+    const newIndex = isFirstSlide ? imageSlides.length - 1 : currentIndex - 1;
+    setCurrentIndex(newIndex);
+  }
+
+  const nextSlide = ()=> {
+    const isLastSlide = currentIndex === imageSlides.length - 1;
+    const newIndex = isLastSlide ? 0 : currentIndex + 1;
+    setCurrentIndex(newIndex);
+  }
+
+
   return (
     <>
-      <header className="fixed w-full z-50 bg-white shadow-sm shadow-gray-400">
-        <div className="py-1 md:py-2 px-4 max-w-screen-xl mx-auto flex flex-row justify-between items-center md:max-w-3xl xl:max-w-7xl">
-          <div>
-            <Link href="/" className="flex items-center py-2 space-x-2 md:space-x-4">
-                <img src="logo-uin.png" alt="logo uin" className="w-6 md:w-9" />
-                <span>
-                  <p className="leading-3 md:leading-5 font-medium text-[6px] md:text-[10px]">Lembaga Penelitian dan Pengabdian Kepada Masyarakat</p>
-                  <p className="md:leading-4 font-semibold text-[10px] md:text-base">UIN SUNAN GUNUNG DJATI BANDUNG</p>
-                </span>
-            </Link>
-          </div>
-          <div className="flex flex-row space-x-10">
-            <ul className="flex flex-row items-center space-x-5">
-              <li><Link href="/">Beranda</Link></li>
-              <li><Link href="/sebaran">Peta Sebaran</Link></li>
-            </ul>
-            <Link href="/mahasiswa/login" className="text-[8px] text-white bg-green-600 md:text-sm py-2 md:py-3 px-5 md:px-8 rounded-full md:rounded-xl">Login</Link>
-          </div>
-        </div>
-      </header>
+      <Header/>
 
       <main className="py-12 px-4">
         {/* Atas */}
         <section className="mt-[-50px] mx-[-16px]">
-          <div className="text-left p-4 md:text-center pt-32 md:pt-60 bg-home">
-            <h1 className="font-light text-4xl md:text-8xl">Kuliah Kerja Nyata</h1>
-            <h3 className="flex flex-col text-[10px] md:text-lg leading-4 md:leading-7 mt-4 md:mt-9 pb-4 md:pb-64 font-light">
-              <span>Assalamu'alaikum</span>
-              <span>Selamat Datang di Situs Resmi Kuliah Kerja Nyata (KKN)</span>
-              <span>Universitas Islam Negeri Sunan Gunung Djati Bandung</span>
-            </h3>
+          <div className="h-[160px] w-full bg-gradient-to-b from-IjoRumput to-transparent absolute z-10"></div>
+          <div style={{ backgroundImage: `url(${imageSlides[currentIndex].url})` }} className="text-left p-4 md:text-right pt-32 md:pt-[380px] w-full bg-center bg-cover duration-300 relative">
+            <div>
+              <h1 className="font-extrabold text-4xl md:text-8xl text-white ">Kuliah Kerja Nyata</h1>
+              <h3 className="font-medium text-white flex flex-col text-[10px] md:text-3xl leading-4 md:leading-7 mt-4 md:mt-9 pb-4 md:pb-24">
+                <span>Assalamu&apos;alaikum</span>
+                <span>Selamat Datang di Situs Resmi Kuliah Kerja Nyata (KKN)</span>
+                <span>Universitas Islam Negeri Sunan Gunung Djati Bandung</span>
+              </h3>
+            </div>
           </div>
+          <ArrowLeftCircleIcon className="w-5 md:w-10 absolute top-[45%] opacity-10 hover:opacity-20 cursor-pointer left-5" onClick={prevSlide}/>
+          <ArrowRightCircleIcon className="w-5 md:w-10 absolute top-[45%] opacity-10 hover:opacity-20 cursor-pointer right-5" onClick={prevSlide}/>
         </section>
 
         {/* Tengah */}
@@ -51,8 +67,15 @@ export default function Home() {
 
         {/* Bawah */}
         <section>
-          <div>
-            
+          <div className="flex flex-row">
+            <div>
+              
+            </div>
+            <div>
+              <h2>Apa itu KKN?</h2>
+              <p> KKN merupakan kepanjangan dari Kuliah Kerja Nyata. Ini merupakan program mahasiswa untuk mengabdi kepada masyarakat dengan pendekatan lintas keilmuan dan sektoral dalam kurun waktu tertentu. Biasanya KKN dilakukan selama 1 atau 2 bulan di sebuah desa atau wilayah setingkat desa.</p>
+              <p>Program ini dilakukan oleh mahasiswa semester akhir seperti semester 5 atau 6. Mereka akan menjalankan kegiatan belajar, mengabdi, mengajar, dan berbaur dengan masyarakat dimana mereka melakukan KKN. Untuk panduan KKN bisa lihat</p>
+            </div>
           </div>
         </section>
       </main>

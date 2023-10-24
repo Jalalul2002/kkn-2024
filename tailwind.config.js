@@ -9,7 +9,12 @@ module.exports = {
     extend: {
       fontFamily: {
         poppins : ['"poppins"', "sans-serif"],
-        dmSerifDisplay : ['"DM Serif Display"', "serif"]
+        dmSerifDisplay : ['"DM Serif Display"', "serif"],
+        darkerGrotesque : ['"Darker Grotesque"', "sans-serif"],
+      },
+      colors : {
+        GreenHerb : "#A6D577",
+        IjoRumput : "#85997D",
       },
     },
   },

@@ -2,9 +2,9 @@ import "leaflet/dist/leaflet.css"
 import "leaflet-defaulticon-compatibility"
 import "leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.css"
 
-import { MapContainer, TileLayer, useMap, Marker, Tooltip, Popup } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 
-function Map() {
+export default function Map() {
     return (
         <MapContainer className="w-full h-64 md:h-96 lg:h-[680px] z-0" center={[-6.9303939446110805, 107.71769935278972]} zoom={4} scrollWheelZoom={false}>
             <TileLayer
@@ -68,5 +68,3 @@ function Map() {
         </MapContainer>
     )
 }
-
-export default Map;

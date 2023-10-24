@@ -9,11 +9,14 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@heroicons/react": "^2.0.18",
+    "flickity": "^2.3.0",
     "leaflet": "^1.9.4",
     "leaflet-defaulticon-compatibility": "^0.1.2",
     "next": "^13.5.4",
     "react": "latest",
     "react-dom": "latest",
+    "react-flickity-component": "^4.0.7",
     "react-leaflet": "^4.2.1"
   },
   "devDependencies": {
